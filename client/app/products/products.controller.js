@@ -37,13 +37,37 @@ angular.module('meanshopApp')
 
     $scope.upload = uploadHandler($scope, Upload, $timeout);
 
+  })
+
+  .constant('clientTokenPaht', '/api/braintree/client_token')
+
+  .controller('ProductCheckoutCtrl', function($scope, $http, $state, ngCart){
+    $scope.error = '';
+
+    $scope.paymentOptions = {
+      onPaymentMethodReceived: function(payload){
+        angular.merge(payload, ngCart.toObject());
+        payload.total = payload.totalCost;
+        console.error(payload);
+        $http.post('/api/orders', payload)
+        .then(function success(){
+          ngCart.empty(true);
+          $state.go('products');
+        }, function error(res){
+          $scope.errors = res;
+        })
+      }
+    };
   });
+
 
   errorHandler = function($scope){
     return function error(httpResponse){
       $scope.errors = httpResponse;
     };
   };
+
+
 
 
   uploadHander = function ($scope, Upload, $timeout) {
@@ -71,4 +95,4 @@ angular.module('meanshopApp')
         });
       }
     };
-};
+  };

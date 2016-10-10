@@ -598,6 +598,31 @@ module.exports = function (grunt) {
     },
   });
 
+  // cleaning the database on each e2e run
+  grunt.registerTask('db', function(target){
+    if(target === 'clean'){
+      var done = this.async();
+      var config = require('./server/config/environment');
+      var mongoose = require('mongoose');
+
+      mongoose.connect(config.mongo.uri, config.mongo.options, function(err){
+        if(err){
+          done(err);
+        }else{
+          mongoose.connection.db.dropDatabase(function(err){
+            if(err){
+              console.log('Connected to' + config.mongo.uri);
+              done(err);
+            }else{
+              console.log('Droped' + config.mongo.uri);
+              done();
+            }
+          })
+        }
+      })
+    }
+  })
+
   // Used for delaying livereload until after server has restarted
   grunt.registerTask('wait', function () {
     grunt.log.ok('Waiting for server reload...');
@@ -698,7 +723,8 @@ module.exports = function (grunt) {
           'wiredep:client',
           'postcss',
           'express:dev',
-          'protractor'
+          'protractor',
+          'autoprefixer'
         ]);
       }
     }

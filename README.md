@@ -1,9 +1,13 @@
-# meanshop
+# Development Status
+https://trello.com/b/VLoBzPWp/mean-stack-with-ionic
+
+# meanshop with ionic
 
 This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.0.0-rc4.
 
-## Getting Started
-
+<!--
+## Getting Started -->
+<!--
 ### Prerequisites
 
 - [Git](https://git-scm.com/)
@@ -29,4 +33,4 @@ Run `grunt build` for building and `grunt serve` for preview.
 
 ## Testing
 
-Running `npm test` will run the unit tests with karma.
+Running `npm test` will run the unit tests with karma. -->
