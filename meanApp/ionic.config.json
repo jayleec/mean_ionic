@@ -1,0 +1,10 @@
+{
+  "name": "meanApp",
+  "app_id": "",
+  "proxies":[
+    {
+      "path" : "/products",
+      "proxyUrl" : "http://localhost:9000/api/products"
+    }
+  ]
+}
