@@ -13,23 +13,23 @@ var Product = require('../api/product/product.model');
 Product.find({}).removeAsync()
   .then(function(){
     Product.createAsync({
-      title: 'product 1',
-      imageUrl: '/assets/uploads/pro1.png',
+      title: '쿠퍼스타운 후드 뉴욕 양키스 컵스',
+      imageUrl: '/assets/uploads/skate.jpg',
       price: 25,
       stock: 250,
       description: 'Build a ..'
     }, {
-      title: 'tshirt',
-      imageUrl: 'assets/uploads/pro2.png',
+      title: '시카고 컵스 레드',
+      imageUrl: 'assets/uploads/hoodie_andersson.jpg',
       price: 15,
       stock: 100,
       description: 'tshirt '
     },{
-      title: 'coffee mug',
-      imageUrl: '/assets/uploads/meanmug.jpg',
+      title: '디트로이드 타이거즈 네이비',
+      imageUrl: '/assets/uploads/hoodie_d.jpg',
       price: 8,
       stock: 50,
-      description: 'Convert coffee into MEAN code'
+      description: 'Convert hoodie into MEAN code'
     })
     .then(function(){
       console.log('finisied populating products');

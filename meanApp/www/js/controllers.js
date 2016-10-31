@@ -1,4 +1,20 @@
 angular.module('starter.controllers', [])
+.factory('Api', function($http, ApiEndpoint){
+  console.log('ApiEndpoint', ApiEndpoint)
+
+  var getApiData = function(){
+    return $http.get(ApiEndpoint.url + '/tasks')
+    .then(function(data){
+      console.log('Got some data: ', data);
+      return data;
+    });
+  };
+
+  return {
+    getApiData: getApiData
+  };
+})
+
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -41,23 +57,42 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope, $http) {
-  // $scope.playlists = [
-  //   { title: 'Reggae', id: 1 },
-  //   { title: 'Chill', id: 2 },
-  //   { title: 'Dubstep', id: 3 },
-  //   { title: 'Indie', id: 4 },
-  //   { title: 'Rap', id: 5 },
-  //   { title: 'Cowbell', id: 6 }
-  // ];
-  
+// .controller('PlaylistsCtrl', function($scope, $http) {
+//
+//   $http.get('/products').success(function(data){
+//     $scope.playlists = data;
+//     // console.log("This is product:", data);
+//   })
+//
+// })
+
+.controller('ProductlistsCtrl', function($scope, $http, ApiEndpoint){
   $http.get('/products').success(function(data){
-    $scope.playlists = data;
-    console.log("This is product:", data);
+    $scope.productlists = data;
+    
   })
-
-
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+.controller('ProductCtrl', function($scope, $http, $stateParams){
+})
+
+// .controller('PlaylistCtrl', function($scope, $stateParams) {
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//

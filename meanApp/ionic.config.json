@@ -5,6 +5,10 @@
     {
       "path" : "/products",
       "proxyUrl" : "http://localhost:9000/api/products"
+    },
+    {
+      "path" : "/assets",
+      "proxyUrl" : "http://localhost:9000/assets"
     }
   ]
 }

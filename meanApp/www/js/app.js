@@ -6,6 +6,10 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers'])
 
+.constant('ApiEndpoint', {
+  url:'http://localhost:9000/'
+})
+
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -61,6 +65,29 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
+  // product-list state
+    .state('app.productlists', {
+      url: '/productlists',
+      views: {
+        'menuContent' : {
+          templateUrl: 'templates/product-lists.html',
+          controller: 'ProductlistsCtrl'
+        }
+      }
+    })
+
+    // product-list state
+      .state('app.product', {
+        url: '/productlists/:productId',
+        views: {
+          'menuContent' : {
+            templateUrl: 'templates/product.html',
+            controller: 'ProductCtrl'
+          }
+        }
+      })
+
+
   .state('app.single', {
     url: '/playlists/:playlistId',
     views: {
@@ -71,5 +98,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/productlists');
 });

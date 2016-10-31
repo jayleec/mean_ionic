@@ -11,6 +11,21 @@ var paths = {
   sass: ['./scss/**/*.scss']
 };
 
+
+var replace = require('replace');
+var replaceFiles = ['./www/js/app.js'];
+
+gulp.task('add-proxy', function(){
+  return replace({
+    regex:"http://localhost:8100/assets",
+    replacement:"http://localhost:9000/assets",
+    paths: replaceFiles,
+    recursive: false,
+    silent: false,
+  })
+})
+
+
 gulp.task('default', ['sass']);
 
 gulp.task('sass', function(done) {

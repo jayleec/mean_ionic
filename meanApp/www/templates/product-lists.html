@@ -1,0 +1,15 @@
+<ion-view view-title="Apperal">
+  <ion-content>
+    <ion-list>
+
+      <div ng-repeat="product in productlists">
+        <a href="#/app/productlists/{{product.id}}" style="text-decoration:none">
+          <img class="full-image" src="{{product.imageUrl}}" />
+          <h2>{{product.title}}</h2>
+          <p>{{product.description}}</p>
+        </a>
+      </div>
+
+    </ion-list>
+  </ion-content>
+</ion-view>
