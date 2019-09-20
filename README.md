@@ -1,4 +1,4 @@
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/5Ku4zMrNFu8)
+[![IMAGE ALT TEXT HERE](https://firebasestorage.googleapis.com/v0/b/tarot-11d8e.appspot.com/o/video_preview.png?alt=media&token=4b964612-7bdf-4f3f-86f5-afd378515553)](https://youtu.be/5Ku4zMrNFu8)
 
 # Development Status
 https://trello.com/b/VLoBzPWp/mean-stack-with-ionic
